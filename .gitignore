@@ -7,3 +7,7 @@ data/*.db
 node_modules/
 dist/
 
+
+*.egg-info/
+backend/data/*.db
+backend/data/*.db-*
