@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AdaptiveHoney — Deception Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark"><i></i><i></i><i></i></span><span>Adaptive<span>Honey</span></span></a>
+    <nav>
+      <a class="active" href="#overview"><span>⌁</span> Overview</a>
+      <a href="#sessions"><span>◉</span> Live sessions <b id="liveBadge">0</b></a>
+      <a href="#evidence"><span>◇</span> ATT&amp;CK evidence</a>
+      <a href="#terminal"><span>⌘</span> Shell lab</a>
+      <a href="#health"><span>＋</span> Sensor health</a>
+    </nav>
+    <div class="safety"><div class="pulse"></div><div><strong>Containment active</strong><small>Emulation only · no egress</small></div></div>
+    <div class="version">Research prototype <span>v0.1</span></div>
+  </aside>
+
+  <main>
+    <header><div><p class="eyebrow">DECEPTION OPERATIONS</p><h1>Signal over noise.</h1><p>Behavior-aware sessions, evidence you can defend.</p></div><button id="newSession" class="primary">＋ New simulation</button></header>
+
+    <section id="overview" class="metrics">
+      <article><div class="metric-head"><span>ACTIVE SESSIONS</span><em class="green">LIVE</em></div><strong id="activeMetric">0</strong><small><i class="up">↗</i> Isolated namespaces</small></article>
+      <article><div class="metric-head"><span>VERIFIED SIGNALS</span><em>ATT&amp;CK</em></div><strong id="signalMetric">0</strong><small>Evidence-backed observations</small></article>
+      <article><div class="metric-head"><span>MEDIAN RESPONSE</span><em>p50</em></div><strong><span id="latencyMetric">0</span><sup>ms</sup></strong><small>Deterministic engine</small></article>
+      <article><div class="metric-head"><span>CONSISTENCY</span><em class="green">STABLE</em></div><strong id="consistencyMetric">100<sup>%</sup></strong><small>0 state violations</small></article>
+    </section>
+
+    <section class="grid">
+      <article id="sessions" class="panel sessions-panel">
+        <div class="panel-head"><div><p class="eyebrow">SESSION INTELLIGENCE</p><h2>Live activity</h2></div><button class="ghost" id="refresh">Refresh</button></div>
+        <div class="table-wrap"><table><thead><tr><th>SOURCE</th><th>PERSONA</th><th>BEHAVIOR</th><th>OBJECTIVE</th><th>COMMANDS</th><th></th></tr></thead><tbody id="sessionsBody"></tbody></table></div>
+        <div id="emptySessions" class="empty"><div class="radar"><span></span></div><h3>No active observations</h3><p>Start a simulation to exercise the adaptive shell and evidence pipeline.</p></div>
+      </article>
+
+      <article class="panel profile-panel">
+        <div class="panel-head"><div><p class="eyebrow">BEHAVIOR PROFILE</p><h2 id="profileTitle">Awaiting session</h2></div><span class="status-dot">LIVE INFERENCE</span></div>
+        <div id="profileContent" class="profile-empty">Select a session to inspect probabilistic classifications and supporting evidence.</div>
+      </article>
+
+      <article id="evidence" class="panel evidence-panel">
+        <div class="panel-head"><div><p class="eyebrow">EVIDENCE CHAIN</p><h2>ATT&amp;CK observations</h2></div><span class="count" id="evidenceCount">0 mapped</span></div>
+        <div id="evidenceList" class="evidence-list"><div class="profile-empty">Mapped techniques will appear here with confidence, status, and event lineage.</div></div>
+      </article>
+
+      <article id="terminal" class="panel terminal-panel">
+        <div class="terminal-top"><div class="lights"><i></i><i></i><i></i></div><span id="terminalHost">adaptive shell · disconnected</span><button id="clearTerminal">clear</button></div>
+        <div id="terminalOutput" class="terminal-output"><p class="muted"># Safe virtual shell. Commands never execute on the host.</p></div>
+        <form id="terminalForm" class="terminal-input"><label id="prompt">guest@adaptive:~$</label><input id="commandInput" autocomplete="off" spellcheck="false" placeholder="Start a simulation to connect" disabled><button>↵</button></form>
+      </article>
+    </section>
+
+    <footer id="health"><span><i class="online"></i> Sensor healthy</span><span>Append-only evidence · Atomic state · Bounded commands</span></footer>
+  </main>
+
+  <dialog id="sessionDialog"><form method="dialog"><div class="dialog-icon">⌁</div><h2>Start a controlled session</h2><p>Create a fresh, isolated virtual Linux state for safe experimentation.</p><label>SERVER PERSONA<select id="persona"><option value="development">Development API server</option><option value="backup">Backup &amp; archive server</option></select></label><label>SYNTHETIC SOURCE IP<input id="sourceIp" value="203.0.113.42" pattern="[0-9.]+"></label><div class="dialog-actions"><button value="cancel" class="ghost">Cancel</button><button value="default" id="createSession" class="primary">Create session</button></div></form></dialog>
+  <div id="toast" class="toast"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
+
